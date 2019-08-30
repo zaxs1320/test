@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./index.css">
+    <title>jquery</title>
+</head>
+
+<body>
+    
+    <!-- <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script> -->
+    <script src="https://blog-static.cnblogs.com/files/lianmin/jquery1.11.1.js?v=1"></script>
+    <script src="./index.js"></script>
+
+    <div id="modelSlider" style="width:1280px;">
+            
+    </div>
+
+    <script>
+        // var slider = new Slider()
+        $("#modelSlider").slider({
+            imgs: [  //图片的地址
+                "./img/1.jpg",
+                "./img/2.jpg",
+                "./img/3.jpg",
+                "./img/4.jpg",
+                "./img/5.jpg",
+                "./img/6.jpg"
+            ],
+            urls: [  //点击图片跳转到的地址，也可以如下放一段js
+                'javascript:makeDialog("轮显提示或者地址","第1个图",function(){},3)',
+                'javascript:makeDialog("轮显提示或者地址","第2个图",function(){},3)',
+                'javascript:makeDialog("轮显提示或者地址","第3个图",function(){},3)',
+                'javascript:makeDialog("轮显提示或者地址","第4个图",function(){},3)',
+                'javascript:makeDialog("轮显提示或者地址","第5个图",function(){},3)',
+                'javascript:makeDialog("轮显提示或者地址","第6个图",function(){},3)'
+            ],
+            scale: 5 / 2,   //图片宽高比
+            border: false,   //是否显示分界线
+            showBar: true,    //是否可以人工切换   是否显示指标
+            x: 4,      //横向格子数
+            y: 3       //纵向格子数
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <script>
+        function tailFactorial(n, m) {
+            if(n<=1) return m;
+            return tailFactorial(n-1,m*n)
+        }
+        function currying(fn,n) {
+            return function(aa) {
+                return fn.call(this, n, aa)
+            }
+        }
+        var factorial = currying(tailFactorial, 1);
+        var b=factorial(5)
+        console.log(b)
+    </script> -->
+
+    <script>
+        const pipeline = (...funcs) => val =>{ console.log(val,funcs); return funcs.reduce((a, b) => b(a), val);  };
+
+        const plus1 = a => a + 1;
+        const mult2 = a => a * 2;
+        const addThenMult = pipeline(plus1, mult2);
+
+        
+        console.log(addThenMult(5))
+    </script>
+
+    <script>
+        var abc = (...a) => b => {console.log(a); return b;}
+        function aa() {
+            console.log('aa')
+        }
+        function bb() {
+            console.log('bb')
+        }
+        var abb = abc(aa,bb)
+        console.log(abb(1))
+    </script>
+</body>
+
+</html>

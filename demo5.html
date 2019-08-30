@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        p {
+            position: absolute;
+            width: 500px;
+            background-color: chocolate;
+            transition: all 2s ease;
+        }
+
+    </style>
+</head>
+
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#div").click(function () {
+                $("div").animate({ left: '250px' }, 2000, function () {
+                    console.log('1')
+                }).queue("fx", function (next) {
+                    var time = setTimeout(() => {
+                        $("div").css('width', 200)
+                        console.log('2')
+                        clearTimeout(time)
+                        next();
+                    }, 50)
+                }).animate({ left: '250px' }, 2000, function () {
+                    console.log('3')
+                });
+
+            });
+        });
+    </script>
+
+    <script>
+        (function ($) {
+            $.fn.will = function () {
+                console.log('will')
+            }
+        })(jQuery)
+
+
+    </script>
+
+    <script>
+        var nackName = document.querySelector('.publishComment-author');
+        nackName.value = localStorage.nackName;
+    </script>
+
+
+
+
+    <button id="div">开始动画</button> <button id="ppp">开始P</button>
+    <div id="abc" style="background:#98bf21;height:100px;width:100px;position:absolute;"></div>
+    <div style="position: absolute">1</div>
+    <p id="p1" style="top: 50px">2</p>
+    <p id="p2" style="top: 100px">3</p>
+    <p id="p3" style="top: 150px">4</p>
+
+    <script>
+        // $.fn.abc = function(i) {
+        //     var id = '#' + i
+        //     return $.each(this, function(index, ele){
+        //         $(ele).queue(function(next) {
+        //             console.log(ele, this)
+        //             var time = setTimeout(()=> {
+        //                 $(id).css('left', 50)
+        //                 clearTimeout(time)
+        //                 next()
+        //             },50)
+        //         })
+        //     })
+        // }
+        $.fn.abc = function(i) {
+            var id = '#p' + i
+            return $.each(this, function(index, ele){
+                $(ele).queue(function(next) {
+                    console.log(ele, this)  
+                    var time = setTimeout(()=> {
+                        $(id).css('left', 50)
+                        clearTimeout(time)
+                        next()
+                    },220)
+                })
+            })
+        }
+        $("#ppp").click(function () {
+            for(let i=1; i<=3; i++) {
+                $("p").abc(i)
+            }
+        })
+
+    </script>
+
+</body>
+
+</html>

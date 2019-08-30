@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>3D云</title>
+    <style>
+        .aaa {
+            background-color: #ebebeb;
+            margin: 1px;
+            font-size: 18px;
+        }
+        .authorInfo {
+            margin-top: 5px 0;
+            line-height: 1.5;
+            font-size: 12px;
+        }
+        .authorInfo li {
+            list-style: none;
+        }
+        .authorInfo span {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="authorInfo">
+        <ul>
+            <li>昵称：<span>向日葵</span></li>
+        </ul>
+    </div>
+
+    <div class="catListPostCategory">
+        <ul>
+            <li>答案是</li>
+            <li>十大</li>
+            <li>大撒</li>
+            <li>驱蚊器</li>
+            <li>大撒</li>
+        </ul>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="http://files.cnblogs.com/justinw/jquery.engine3D.js" type="text/javascript" charset="utf-8"></script>
+    <script src="http://files.cnblogs.com/justinw/jquery.particlePhysics.js" type="text/javascript" charset="utf-8"></script>
+    <script src="http://files.cnblogs.com/justinw/jquery.starfieldTagCloud.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            //注意：这里是用的随笔分类做例子，你自己可以根据你自己情况任意设定。
+            $(".catListPostCategory>ul").wrap("<div class='wrap' ></div>").parent().css({ 'width': '245px', 'height': '496px' });
+            var options = { "range": [-200, 300], "gravity": -10, "xPos": 0.5, "yPos": 0.5, "gravityVector": [0, 0, 1], "interval": 100, "hoverGravityFactor": 0 };
+            jQuery("div.wrap").starfieldTagCloud(options);
+        });
+    </script>
+</body>
+
+</html>

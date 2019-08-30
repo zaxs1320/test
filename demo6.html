@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<button id='aaa'>click</button>
+	<script type="text/javascript">
+		var obj = {
+			massage: 'abc',
+			handleClick: function() {
+				console.log(this.massage)
+			}
+		}
+		obj.handleClick()
+		var aaa = document.getElementById('aaa');
+		aaa.addEventListener("click", function() {
+			obj.handleClick()
+		})
+		console.log(aaa)
+	</script>
+</body>
+</html>

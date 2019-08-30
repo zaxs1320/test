@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        String.prototype.format = function () {
+            var args = arguments;
+            console.log(args)
+            var reg = /\{(\d+)\}/g;
+            return this.replace(reg, function (g0, g1) {
+                console.log(g0,g1)
+                return args[+g1];
+            });
+        };
+        var a = 'dsadd{0}das{1}da{2}s'.format(312321,31344,123);
+        console.log(a)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div style="margin-bottom: 20px;overflow: hidden;box-shadow: 0 2px 16px #ddd;background-color:#fff;height:360px;">
+        <div id="imgBar" style="margin:0 auto;width:1280px;">
+        </div>
+    </div>
+    <script type="text/javascript">
+        $("#imgBar").slider({
+            imgs: [  //图片的地址
+                "./img/1.jpg",
+                "./img/2.jpg",
+                "./img/3.jpg",
+                "./img/4.jpg",
+                "./img/5.jpg",
+                "./img/6.jpg"
+            ],
+            scale: 128 / 36,
+            border: true,
+            delay: 2200,
+            x: 10,
+            y: 3
+        });
+    </script>
+</body>
+</html>

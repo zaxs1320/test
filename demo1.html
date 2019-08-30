@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Inventory</h1>
+        <table id="inventory">
+            <thead>
+                <tr class="two">
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr class="two" id="sum">
+                    <td>Total</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="average">
+                    <td>Average</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr>
+                    <td><a href="spam.html" data-tooltip-text="Nutritious and delicious!">Spam</a></td>
+                    <td>4</td>
+                    <td>2.50</td>
+                </tr>
+                <tr>
+                    <td><a href="egg.html" data-tooltip-text="Farm fresh or scrambled!">Egg</a></td>
+                    <td>12</td>
+                    <td>4.32</td>
+                </tr>
+                <tr>
+                    <td><a href="gourmet-spam.html" data-tooltip-text="Chef Hermann's recipe.">Gourmet Spam</a></td>
+                    <td>14</td>
+                    <td>7.89</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script>
+        (function ($) {
+            $.fn.shadow = function (opts) {
+                //定义的默认的参数
+                var defaults = {
+                    copies: 5,
+                    opacity: 0.1,
+                    //回调函数
+                    copyOffset: function (index) {
+                        return { x: index, y: index };
+                    }
+                };
+                //将opts的内容合并到default中。
+                var options = $.extend(defaults, opts);
+                return this.each(function () {
+                    var $originalElement = $(this);
+                    //设置参数对象
+                    for (var i = 0; i < options.copies; i++) {
+                        var offset = options.copyOffset(i);
+                        $originalElement
+                            .clone()
+                            .css({
+                                position: 'absolute',
+                                left: $originalElement.offset().left + offset.x,
+                                top: $originalElement.offset().top + offset.y,
+                                margin: 0,
+                                zIndex: -1,
+                                //设置参数对象
+                                opacity: options.opacity
+                            })
+                            .appendTo('body');
+                    }
+                });
+            };
+        })(jQuery);
+        $(document).ready(function () {
+            $('h1').shadow({
+                copies: 5,
+                copyOffset: function (index) {
+                    return { x: -index, y: -2 * index };
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
